@@ -41,7 +41,7 @@
 #pragma mark - LoginViewDelegate
 - (void)loginBtnDidClick:(LoginView *)loginView
 {
-    //主界面的四个UINavigationController
+    //主界面的三个UINavigationController
     UINavigationController *messageNC = [[UINavigationController alloc] initWithRootViewController:[[MessageViewController alloc] init]];
     messageNC.tabBarItem.title = @"消息";
     messageNC.tabBarItem.image = [UIImage imageNamed:[[NSBundle mainBundle] pathForResource:@"tab_recent_nor@3x" ofType:@"png"]];
@@ -54,13 +54,13 @@
     dynamicNC.tabBarItem.title = @"动态";
     dynamicNC.tabBarItem.image = [UIImage imageNamed:[[NSBundle mainBundle] pathForResource:@"tab_qworld_nor@3x" ofType:@"png"]];
     
-    UINavigationController *settingNC = [[UINavigationController alloc] initWithRootViewController:[[SettingViewController alloc] init]];
-    settingNC.tabBarItem.title = @"设置";
-    settingNC.tabBarItem.image = [UIImage imageNamed:[[NSBundle mainBundle] pathForResource:@"tab_me_nor@2x" ofType:@"png"]];
+//    UINavigationController *settingNC = [[UINavigationController alloc] initWithRootViewController:[[SettingViewController alloc] init]];
+//    settingNC.tabBarItem.title = @"设置";
+//    settingNC.tabBarItem.image = [UIImage imageNamed:[[NSBundle mainBundle] pathForResource:@"tab_me_nor@2x" ofType:@"png"]];
     
     //一个UITabBarController管理控制器(管理主界面)
     UITabBarController *tbc = [[UITabBarController alloc] init];
-    tbc.viewControllers = @[messageNC, contacterNC,dynamicNC, settingNC];
+    tbc.viewControllers = @[messageNC, contacterNC,dynamicNC];
     
     //跳转至主界面
     [self.navigationController pushViewController:tbc animated:NO];

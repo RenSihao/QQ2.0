@@ -57,7 +57,9 @@
     }
     else if(self.talkInfo.type == SenderOther)
     {
-        textX = CGRectGetMaxX(self.iconFrame) + margin;
+        //textX = CGRectGetMaxX(self.iconFrame) + margin;
+        textX = margin*2 + iconW;
+    
     }
     self.textFrame = CGRectMake(textX, textY, textW, textH);
     

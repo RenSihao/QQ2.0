@@ -81,16 +81,17 @@
     [self.textBtn setTitle:talkInfo.text forState:UIControlStateNormal];
     if(talkInfo.type == SenderSelf)
     {
-        UIImage *press_img = [UIImage imageNamed:@"chat_send_press_pic@2x"];
+        UIImage *press_img  = [UIImage imageNamed:@"chat_send_press_pic@2x"];
         UIImage *normal_img = [UIImage imageNamed:@"chat_send_nor@2x"];
-        [normal_img stretchableImageWithLeftCapWidth:normal_img.size.width/2-1 topCapHeight:normal_img.size.height/2-1];
+        [normal_img resizableImageWithCapInsets:UIEdgeInsetsMake(20, 60, 20, 60) resizingMode:UIImageResizingModeStretch];
+        //[normal_img stretchableImageWithLeftCapWidth:normal_img.size.width/2-1 topCapHeight:normal_img.size.height/2-1];
         [self.textBtn setBackgroundImage:normal_img forState:UIControlStateNormal];
         [self.textBtn setBackgroundImage:press_img forState:UIControlStateSelected];
         
     }
     else if(talkInfo.type == SenderOther)
     {
-        UIImage *press_img = [UIImage imageNamed:@"chat_recive_press_pic@2x"];
+        UIImage *press_img  = [UIImage imageNamed:@"chat_recive_press_pic@2x"];
         UIImage *normal_img = [UIImage imageNamed:@"chat_recive_nor@2x"];
         [normal_img stretchableImageWithLeftCapWidth:normal_img.size.width/2-1 topCapHeight:normal_img.size.height/2-1];
         [self.textBtn setBackgroundImage:normal_img forState:UIControlStateNormal];
