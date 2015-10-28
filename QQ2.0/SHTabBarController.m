@@ -30,6 +30,7 @@
     //LaunchImage显示2秒
     [NSThread sleepForTimeInterval:2];
     
+    self.view.backgroundColor = [UIColor orangeColor];
     //初始化自定义tabbar
     [self.tabBar addSubview:self.costumTabBar];
     

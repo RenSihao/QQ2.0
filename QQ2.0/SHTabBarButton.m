@@ -83,7 +83,7 @@
 //重写内部文字frame
 - (CGRect)titleRectForContentRect:(CGRect)contentRect
 {
-    CGFloat titleY = contentRect.size.height * 0.8;
+    CGFloat titleY = contentRect.size.height * 0.8 - 3;
     CGFloat titleW = contentRect.size.width;
     CGFloat titleH = contentRect.size.height - titleY;
     return CGRectMake(0, titleY, titleW, titleH);

@@ -16,6 +16,22 @@
 @end
 
 @implementation SHTabBar
+//- (instancetype)initWithFrame:(CGRect)frame
+//{
+//    if(self = [super initWithFrame:frame])
+//    {
+//        
+//    }
+//    return self;
+//}
+- (NSMutableArray *)tabBarButtons
+{
+    if(!_tabBarButtons)
+    {
+        _tabBarButtons = [NSMutableArray array];
+    }
+    return _tabBarButtons;
+}
 /**
  一个添加自定义按钮的对外开放的实例方法
  */

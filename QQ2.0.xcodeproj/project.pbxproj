@@ -52,6 +52,7 @@
 		52AA3D7C1BBFAABF00D3A4C4 /* Contact.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52AA3D7B1BBFAABF00D3A4C4 /* Contact.plist */; settings = {ASSET_TAGS = (); }; };
 		52AA3D881BBFB33A00D3A4C4 /* ContactInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA3D871BBFB33A00D3A4C4 /* ContactInfo.m */; settings = {ASSET_TAGS = (); }; };
 		52AA3D8B1BBFB64000D3A4C4 /* GroupCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AA3D8A1BBFB64000D3A4C4 /* GroupCellInfo.m */; settings = {ASSET_TAGS = (); }; };
+		52C78CF61BE0C19E00A7E3D8 /* ContacterOneRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C78CF51BE0C19E00A7E3D8 /* ContacterOneRowCell.m */; settings = {ASSET_TAGS = (); }; };
 		52D1A2FE1BC38E1A00BF6391 /* TalkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D1A2FD1BC38E1A00BF6391 /* TalkView.m */; settings = {ASSET_TAGS = (); }; };
 		52D1A3021BC3909400BF6391 /* TalkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D1A3011BC3909400BF6391 /* TalkInfo.m */; settings = {ASSET_TAGS = (); }; };
 		52D1A3051BC390A500BF6391 /* TalkFrameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D1A3041BC390A500BF6391 /* TalkFrameInfo.m */; settings = {ASSET_TAGS = (); }; };
@@ -3180,6 +3181,8 @@
 		52AA3D871BBFB33A00D3A4C4 /* ContactInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactInfo.m; sourceTree = "<group>"; };
 		52AA3D891BBFB64000D3A4C4 /* GroupCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupCellInfo.h; sourceTree = "<group>"; };
 		52AA3D8A1BBFB64000D3A4C4 /* GroupCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupCellInfo.m; sourceTree = "<group>"; };
+		52C78CF41BE0C19E00A7E3D8 /* ContacterOneRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContacterOneRowCell.h; sourceTree = "<group>"; };
+		52C78CF51BE0C19E00A7E3D8 /* ContacterOneRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContacterOneRowCell.m; sourceTree = "<group>"; };
 		52D1A2FC1BC38E1A00BF6391 /* TalkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkView.h; sourceTree = "<group>"; };
 		52D1A2FD1BC38E1A00BF6391 /* TalkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkView.m; sourceTree = "<group>"; };
 		52D1A3001BC3909400BF6391 /* TalkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkInfo.h; sourceTree = "<group>"; };
@@ -6487,6 +6490,8 @@
 				5267F70E1BBA780F00B80DE2 /* GroupTableViewCell.m */,
 				5267F7101BBA784900B80DE2 /* MemberTableViewCell.h */,
 				5267F7111BBA784900B80DE2 /* MemberTableViewCell.m */,
+				52C78CF41BE0C19E00A7E3D8 /* ContacterOneRowCell.h */,
+				52C78CF51BE0C19E00A7E3D8 /* ContacterOneRowCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -13271,6 +13276,7 @@
 				52EE07FE1BBEC18900BC6373 /* DynamicCellInfo.m in Sources */,
 				5267F6F21BBA5A3A00B80DE2 /* MemberCellInfo.m in Sources */,
 				5207FAA11BC140BC00E982A7 /* MessageFrameInfo.m in Sources */,
+				52C78CF61BE0C19E00A7E3D8 /* ContacterOneRowCell.m in Sources */,
 				52AA3D881BBFB33A00D3A4C4 /* ContactInfo.m in Sources */,
 				52DED55A1BC10A5900FFEFC1 /* MessageTableViewCell.m in Sources */,
 				5267F6CC1BBA356700B80DE2 /* SettingViewController.m in Sources */,
