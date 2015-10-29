@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UILabel     *nameLab;
 @property (nonatomic, strong) UILabel     *timeLab;
 @property (nonatomic, strong) UILabel     *messageLab;
+@property (nonatomic, strong) UIView      *line;
 @end
 
 @implementation MessageTableViewCell
@@ -49,10 +50,15 @@
         self.messageLab = [[UILabel alloc] init];
         self.messageLab.font = [UIFont systemFontOfSize:12.0f];
         
+        self.line = [[UIView alloc] init];
+        self.line.backgroundColor = [UIColor blackColor];
+        self.line.alpha = 0.1;
+        
         [self.contentView addSubview:self.iconView];
         [self.contentView addSubview:self.nameLab];
         [self.contentView addSubview:self.timeLab];
         [self.contentView addSubview:self.messageLab];
+        [self.contentView addSubview:self.line];
     }
     return self;
 }
@@ -74,16 +80,8 @@
     self.nameLab.frame    = self.messageFrameInfo.nameFrame;
     self.timeLab.frame    = self.messageFrameInfo.timeFrame;
     self.messageLab.frame = self.messageFrameInfo.messageFrame;
+    self.line.frame       = self.messageFrameInfo.lineFrame;
 }
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end

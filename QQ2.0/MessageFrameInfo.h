@@ -18,4 +18,7 @@
 @property (nonatomic, assign) CGRect nameFrame;
 @property (nonatomic, assign) CGRect timeFrame;
 @property (nonatomic, assign) CGRect messageFrame;
+@property (nonatomic, assign) CGRect lineFrame;
+
+@property (nonatomic, assign) CGFloat rowHeight;
 @end

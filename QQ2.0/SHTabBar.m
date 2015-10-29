@@ -46,7 +46,7 @@
     button.item = item;
     
     //监听按钮点击
-    [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchDown];
     
     //默认选中第0个
     if(self.tabBarButtons.count == 1)

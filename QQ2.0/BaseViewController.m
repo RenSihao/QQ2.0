@@ -26,13 +26,15 @@
     [super viewDidLoad];
     
     /**
-     
+     对基本视图的共性加载
      */
     //添加tableview
     [self addBaseTableView];
     
     //添加导航栏左边视图
     [self addLeftButtonItem];
+    
+    
     
     
     /**
@@ -47,7 +49,9 @@
     
 }
 
-#pragma mark - 正面基本视图
+/**
+ 基本视图的tableview，包括搜索栏
+ */
 - (void)addBaseTableView
 {
     UITableView *baseTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-49)];
@@ -75,6 +79,9 @@
     //这个baseTableView就是除了NavigationBar和TabBar，中间的那部分
     [self.view addSubview:baseTableView];
 }
+/**
+ 添加导航栏左边的头像
+ */
 - (void)addLeftButtonItem
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -84,11 +91,16 @@
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.leftBarButtonItem = leftItem;
 }
+/**
+ 重写set搜索栏placeholder
+ */
 - (void)setSearchPlaceHolder:(NSString *)searchPlaceHolder
 {
     _searchPlaceHolder = searchPlaceHolder;
 }
-
+/**
+ 添加左边菜单栏的头部背景
+ */
 - (void)addBackgroundImage
 {
     //这个很重要，别问我为什么
@@ -100,7 +112,7 @@
         }
     }
     
-    //初始化头部背景图片，添加到keywindow
+    //初始化左边菜单栏的头部背景图片，添加到keywindow
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     imageView.image = [UIImage imageNamed:@"sidebar_bg"];
     imageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 160);
@@ -108,10 +120,13 @@
   
     
 }
+/**
+ 添加左边菜单栏的tableView
+ */
 - (void)addLeftMenu
 {
-    //加载出左边菜单cell的数据
-    NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"" ofType:@"plist"]];
+    //拿到左边菜单栏的cell所有数据
+    NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"LeftMenuCell" ofType:@"plist"]];
     _leftMenu = [[LeftMenu alloc] initWithFrame:CGRectMake(0, HEADER_HEIGHT, LeftMenu_Width, LeftMenu_Height)];
     _leftMenu.list = array;
     _leftMenu.hidden = YES;
@@ -125,12 +140,26 @@
 - (void)leftButtonItemDidClick
 {
     NSLog(@"left did click");
+    
+    
 }
 
 
-
-
-
+//#pragma mark - UITableViewDataSource
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    
+//}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//}
+//
+//#pragma mark - UITableViewDelegate
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//}
 
 
 

@@ -66,14 +66,15 @@
     
 }
 
-//- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
-//{
-//    // 导航栏都是栈管理的，如果栈里面的内容大于0，说明push了，
-//    if (self.viewControllers.count > 0) {
-//        // 把tabbar隐藏
-//        viewController.hidesBottomBarWhenPushed = YES;
-//    }
-//    
-//    [super pushViewController:viewController animated:animated];
-//}
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    // 导航栏都是栈管理的，如果栈里面的内容大于0，说明push了，
+    if (self.viewControllers.count > 0)
+    {
+        // 把tabbar隐藏
+        viewController.hidesBottomBarWhenPushed = YES;
+    }
+    
+    [super pushViewController:viewController animated:animated];
+}
 @end

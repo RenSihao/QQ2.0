@@ -52,9 +52,15 @@
     CGFloat messageH = messageRect.size.height;
     self.messageFrame = CGRectMake(messageX, messageY, messageW, messageH);
     
+    //设置line
+    CGFloat lineX = self.nameFrame.origin.x;
+    CGFloat lineY = CGRectGetMaxY(self.iconFrame) + 4;
+    CGFloat lineW = [UIScreen mainScreen].bounds.size.width - lineX;
+    CGFloat lineH = 1;
+    self.lineFrame = CGRectMake(lineX, lineY, lineW, lineH);
     
-    
-    
+    //cell的高度固定（经过设计）
+    self.rowHeight = 60;
     
 }
 

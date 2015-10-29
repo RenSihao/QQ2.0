@@ -10,20 +10,22 @@
 
 @interface ContacterOneRowCell ()
 
-
 @property (nonatomic, strong) NSMutableArray *btnArray;
 @property (nonatomic, strong) NSMutableArray *labArray;
+
 @property (nonatomic, strong) UIView *line;
 @end
 
 
 
 @implementation ContacterOneRowCell
-
+/**
+ 重写init方法，创建
+ */
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
-    {
+    {   
         _btnArray = [NSMutableArray array];
         _labArray = [NSMutableArray array];
         
@@ -33,17 +35,18 @@
         //循环搭建联系人视图中头部那一行的cell
         for(int i=0; i<4; i++)
         {
-            UIButton *button = [self buttonWithImage:buttonImage[i]];
+            UIButton *button = [self buttonWithImage:[UIImage imageNamed:buttonImage[i]]];
             button.tag = i;
             [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
             [self.btnArray addObject:button];
             [self addSubview:button];
-            
+
             UILabel *label = [self labelWithTitle:labelTitle[i]];
             [self.labArray addObject:label];
             [self addSubview:label];
             
         }
+        
         //一行cell的底部分割线
         UIView *line = [[UIView alloc] init];
         line.backgroundColor = [UIColor blackColor];
@@ -54,10 +57,13 @@
     }
     return self;
 }
+//- (BOOL)isSelected
+//{
+//    return NO;
+//}
 /**
  一般情况下，有关控件的frame布局都写在此方法中
  */
-
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -68,6 +74,7 @@
     {
         UIButton *button = _btnArray[i];
         button.frame = CGRectMake(i*btnW, 0, btnW, 60);
+        NSLog(@"x %lf", button.frame.origin.x);
         
         UILabel *label = _labArray[i];
         label.frame = CGRectMake(i*btnW, 50, btnW, 20);
@@ -86,8 +93,8 @@
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:image forState:UIControlStateNormal];
-    [self addSubview:button];
-    [self.btnArray addObject:button];
+    
+    
     return button;
 }
 - (UILabel *)labelWithTitle:(NSString *)title
@@ -97,15 +104,15 @@
     lab.font = [UIFont boldSystemFontOfSize:12.0f];
     lab.textColor = [UIColor blackColor];
     lab.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:lab];
-    [self.labArray addObject:lab];
+    
+   
     return lab;
 }
 
 #pragma mark - 监听点击事件
 - (void)buttonDidClick:(UIButton *)sender
 {
-    NSLog(@"按钮tag %ld", sender.tag);
+    NSLog(@"联系人视图中头部那一行的cell 按钮tag %ld 被点击", sender.tag);
 }
 
 

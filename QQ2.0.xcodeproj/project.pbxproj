@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5207FAA11BC140BC00E982A7 /* MessageFrameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5207FAA01BC140BC00E982A7 /* MessageFrameInfo.m */; settings = {ASSET_TAGS = (); }; };
+		522969081BE1F26D00E155F9 /* LeftMenuCell.plist in Resources */ = {isa = PBXBuildFile; fileRef = 522969071BE1F26D00E155F9 /* LeftMenuCell.plist */; settings = {ASSET_TAGS = (); }; };
+		5229690B1BE1F2BC00E155F9 /* LeftMenuCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5229690A1BE1F2BC00E155F9 /* LeftMenuCellInfo.m */; settings = {ASSET_TAGS = (); }; };
+		5229690E1BE238AC00E155F9 /* DynamicOneRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5229690D1BE238AC00E155F9 /* DynamicOneRowCell.m */; settings = {ASSET_TAGS = (); }; };
 		525A84361BC42AA400F78A41 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 525A84351BC42AA400F78A41 /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
 		525A843A1BC42AEA00F78A41 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 525A84391BC42AEA00F78A41 /* LoginView.m */; settings = {ASSET_TAGS = (); }; };
 		5264CAFD1BB9312C004F4AFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CAFC1BB9312C004F4AFB /* main.m */; };
@@ -3091,6 +3094,11 @@
 /* Begin PBXFileReference section */
 		5207FA9F1BC140BC00E982A7 /* MessageFrameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFrameInfo.h; sourceTree = "<group>"; };
 		5207FAA01BC140BC00E982A7 /* MessageFrameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFrameInfo.m; sourceTree = "<group>"; };
+		522969071BE1F26D00E155F9 /* LeftMenuCell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LeftMenuCell.plist; sourceTree = "<group>"; };
+		522969091BE1F2BC00E155F9 /* LeftMenuCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuCellInfo.h; sourceTree = "<group>"; };
+		5229690A1BE1F2BC00E155F9 /* LeftMenuCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuCellInfo.m; sourceTree = "<group>"; };
+		5229690C1BE238AC00E155F9 /* DynamicOneRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicOneRowCell.h; sourceTree = "<group>"; };
+		5229690D1BE238AC00E155F9 /* DynamicOneRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicOneRowCell.m; sourceTree = "<group>"; };
 		525A84341BC42AA400F78A41 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		525A84351BC42AA400F78A41 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		525A84381BC42AEA00F78A41 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
@@ -6235,6 +6243,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		522969041BE1F22400E155F9 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		522969051BE1F23000E155F9 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				52A6C4191BDFA66700A71BC6 /* LeftMenu.h */,
+				52A6C41A1BDFA66700A71BC6 /* LeftMenu.m */,
+				52A6C41C1BDFAA7200A71BC6 /* LeftMenuFootView.h */,
+				52A6C41D1BDFAA7200A71BC6 /* LeftMenuFootView.m */,
+				52A6C41F1BDFAA8400A71BC6 /* LeftMenuHeadView.h */,
+				52A6C4201BDFAA8400A71BC6 /* LeftMenuHeadView.m */,
+				52A6C4221BDFAFAC00A71BC6 /* LeftCell.h */,
+				52A6C4231BDFAFAC00A71BC6 /* LeftCell.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		522969061BE1F23500E155F9 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				522969071BE1F26D00E155F9 /* LeftMenuCell.plist */,
+				522969091BE1F2BC00E155F9 /* LeftMenuCellInfo.h */,
+				5229690A1BE1F2BC00E155F9 /* LeftMenuCellInfo.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		5264CAEF1BB9312C004F4AFB = {
 			isa = PBXGroup;
 			children = (
@@ -6526,6 +6566,8 @@
 			children = (
 				5264CB411BB932B6004F4AFB /* DynamicView.h */,
 				5264CB421BB932B6004F4AFB /* DynamicView.m */,
+				5229690C1BE238AC00E155F9 /* DynamicOneRowCell.h */,
+				5229690D1BE238AC00E155F9 /* DynamicOneRowCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -6690,14 +6732,9 @@
 		52A6C4181BDFA64500A71BC6 /* LeftMenu */ = {
 			isa = PBXGroup;
 			children = (
-				52A6C4191BDFA66700A71BC6 /* LeftMenu.h */,
-				52A6C41A1BDFA66700A71BC6 /* LeftMenu.m */,
-				52A6C41C1BDFAA7200A71BC6 /* LeftMenuFootView.h */,
-				52A6C41D1BDFAA7200A71BC6 /* LeftMenuFootView.m */,
-				52A6C41F1BDFAA8400A71BC6 /* LeftMenuHeadView.h */,
-				52A6C4201BDFAA8400A71BC6 /* LeftMenuHeadView.m */,
-				52A6C4221BDFAFAC00A71BC6 /* LeftCell.h */,
-				52A6C4231BDFAFAC00A71BC6 /* LeftCell.m */,
+				522969061BE1F23500E155F9 /* model */,
+				522969051BE1F23000E155F9 /* view */,
+				522969041BE1F22400E155F9 /* controller */,
 			);
 			name = LeftMenu;
 			sourceTree = "<group>";
@@ -12663,6 +12700,7 @@
 				52D1B9851BC3A9E800BF6391 /* weiyun_backup_btn_blue@2x.png in Resources */,
 				52D1AFED1BC3A9E800BF6391 /* buddy_header_icon_circle@2x.png in Resources */,
 				52D1B6D91BC3A9E800BF6391 /* mqz_ugc_btn_time_click@2x.png in Resources */,
+				522969081BE1F26D00E155F9 /* LeftMenuCell.plist in Resources */,
 				52D1B44D1BC3A9E800BF6391 /* qq_addfriend_search_back_normal@2x.png in Resources */,
 				52D1B1C71BC3A9E800BF6391 /* group_file@2x.png in Resources */,
 				52D1B66E1BC3A9E800BF6391 /* mqz_icon_weather_detail_sand@2x.png in Resources */,
@@ -13235,6 +13273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52D1ACB61BC24766005B2B01 /* TalkViewController.m in Sources */,
+				5229690E1BE238AC00E155F9 /* DynamicOneRowCell.m in Sources */,
 				5264CB431BB932B6004F4AFB /* DynamicView.m in Sources */,
 				525A84361BC42AA400F78A41 /* LoginViewController.m in Sources */,
 				525A843A1BC42AEA00F78A41 /* LoginView.m in Sources */,
@@ -13261,6 +13300,7 @@
 				52DF2C001BBAECD900089F5C /* DynamicInfo.m in Sources */,
 				528328191BDF25A90025B3BD /* SHNavigationController.m in Sources */,
 				5283281C1BDF25C90025B3BD /* SHTabBarController.m in Sources */,
+				5229690B1BE1F2BC00E155F9 /* LeftMenuCellInfo.m in Sources */,
 				52A6C4171BDF9B9F00A71BC6 /* BaseViewController.m in Sources */,
 				5283280E1BDF22CD0025B3BD /* UIImage+TL.m in Sources */,
 				52D1A3021BC3909400BF6391 /* TalkInfo.m in Sources */,

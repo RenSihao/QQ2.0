@@ -80,11 +80,11 @@
 {
     if(sender.tag == 1)
     {
-        NSLog(@"消息被点击");
+        NSLog(@"消息视图导航栏自定义中间视图 消息部分 被点击");
     }
     else
     {
-        NSLog(@"电话被点击");
+        NSLog(@"消息视图导航栏自定义中间视图 电话部分 被点击");
     }
     
     _selectedBtn.selected = NO;
