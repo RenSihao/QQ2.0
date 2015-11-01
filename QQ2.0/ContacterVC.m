@@ -8,10 +8,13 @@
 
 #import "ContacterVC.h"
 #import "ContacterOneRowCell.h"
+#import "SHUIHelper.h"
+#import "SHSetting.h"
+#import "FunctionCell.h"
 
 @interface ContacterVC ()
 
-@property (nonatomic, strong) NSArray *messageFrameList;
+@property (nonatomic, strong) NSMutableArray *datas;
 @end
 
 @implementation ContacterVC
@@ -23,6 +26,10 @@
     
     //加载所有子控件
     [self addSubviews];
+    
+    //加载数据
+    [self initDatas];
+    
     
 }
 #pragma mark - 自定义方法
@@ -47,6 +54,14 @@
     
 }
 /**
+ 加载数据源
+ */
+- (void)initDatas
+{
+    _datas = [SHUIHelper getContactItems];
+    [self.tableView reloadData];
+}
+/**
  监听导航栏点击事件
  */
 - (void)rightButtonItemClick
@@ -55,24 +70,71 @@
 }
 
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return _datas.count + 1;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    if(section == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        SHSettingGroup *group = [_datas objectAtIndex:section - 1];
+        return group.itemsCount;
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ContacterOneRowCell *cell = [[ContacterOneRowCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    return cell;
+    if(indexPath.section == 0)
+    {
+        ContacterOneRowCell *cell = [[ContacterOneRowCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        return cell;
+    }
+    else
+    {
+        SHSettingGroup *group = [_datas objectAtIndex:indexPath.section - 1];
+        SHSettingItem *item = [group itemAtIndex:indexPath.row];
+        FunctionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactGroup"];
+        if(!cell)
+        {
+            cell = [[FunctionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ContactGroup"];
+        }
+        cell.item = item;
+        [cell setTitleFontSize:14];
+        [cell setSubTitleFontSize:10];
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+        return cell;
+    }
+    
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    if(indexPath.section == 0)
+    {
+        return 80;
+    }
+    else
+    {
+        return 50;
+    }
+    
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 15;
+    if(section == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return 25; 
+    }
+   
 }
 
 @end
