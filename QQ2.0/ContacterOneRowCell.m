@@ -47,12 +47,12 @@
             
         }
         
-        //一行cell的底部分割线
-        UIView *line = [[UIView alloc] init];
-        line.backgroundColor = [UIColor blackColor];
-        line.alpha = 0.1;
-        _line = line;
-        [self addSubview:line];
+        //一行cell的底部分割线，原版并没有
+//        UIView *line = [[UIView alloc] init];
+//        line.backgroundColor = [UIColor blackColor];
+//        line.alpha = 0.1;
+//        _line = line;
+//        [self addSubview:line];
         
     }
     return self;

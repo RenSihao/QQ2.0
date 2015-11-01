@@ -106,6 +106,8 @@
         [cell setSubTitleFontSize:13];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         
+        cell.leftFreeSpace = 50;
+        NSLog(@"%lf", cell.leftFreeSpace);
         //如果这个cell是一组的第一个，则设置头部线，否则没有头部线
         indexPath.row == 0 ? [cell setTopLineStyle:CellLineStyleFill] :[cell setTopLineStyle:CellLineStyleNone];
         //如果这个cell是一组的最后一个，则设置底部线，否则没有底部线

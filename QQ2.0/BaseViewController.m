@@ -54,7 +54,7 @@
  */
 - (void)addBaseTableView
 {
-    UITableView *baseTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-49)];
+    UITableView *baseTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-49) style:UITableViewStylePlain];
     baseTableView.delegate = self;
     baseTableView.dataSource = self;
     baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;

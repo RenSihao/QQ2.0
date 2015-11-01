@@ -106,6 +106,13 @@
         [cell setTitleFontSize:14];
         [cell setSubTitleFontSize:10];
         [cell setAccessoryType:UITableViewCellAccessoryNone];
+        
+        cell.leftFreeSpace = 0;
+        [cell setBackgroundColor:[UIColor clearColor]];
+        //观察QQ联系人，发现每一个都有头部线
+        [cell setTopLineStyle:CellLineStyleFill];
+        [cell setBottomLineStyle:CellLineStyleNone];
+        
         return cell;
     }
     
@@ -132,9 +139,8 @@
     }
     else
     {
-        return 25; 
+        return 25;
     }
-   
 }
 
 @end
