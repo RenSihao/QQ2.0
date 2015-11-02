@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class DynamicOneRowCell;
+
+@protocol DynamicOneRowCellDelegate <NSObject>
+
+- (void)oneRowCellDidClick:(DynamicOneRowCell *)oneRowCell button:(UIButton *)sender;
+
+@end
+
 @interface DynamicOneRowCell : UITableViewCell
 
+@property (nonatomic, weak) id<DynamicOneRowCellDelegate> delegate;
 @end

@@ -11,8 +11,9 @@
 #import "FunctionCell.h"
 #import "SHSetting.h"
 #import "SHUIHelper.h"
+#import "QQZoneVC.h"
 
-@interface DynamicVC ()
+@interface DynamicVC () <DynamicOneRowCellDelegate>
 
 @property (nonatomic, strong) NSMutableArray *datas; //除了第一组的横着的那一行cell之外的cell，所有数据
 @end
@@ -58,13 +59,6 @@
     _datas = [SHUIHelper getDynamicItems];
     [self.tableView reloadData];
 }
-/**
- 监听导航栏点击事件
- */
-- (void)rightButtonItemDidClick
-{
-    NSLog(@"动态视图导航栏right item被点击");
-}
 
 
 #pragma mark - UITableViewDataSource
@@ -89,7 +83,7 @@
     if(indexPath.section == 0)
     {
         DynamicOneRowCell *cell = [[DynamicOneRowCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-
+        cell.delegate = self;
         return cell;
     }
     else
@@ -140,10 +134,29 @@
         return 20;
     
 }
+#pragma mark - DynamicOneRowCellDelegate
+- (void)oneRowCellDidClick:(DynamicOneRowCell *)oneRowCell button:(UIButton *)sender
+{
+    if(sender.tag == 0)
+    {
+        QQZoneVC *zoneVC = [[QQZoneVC alloc] init];
+        [self.navigationController pushViewController:zoneVC animated:YES];
+    }
+    else
+    {
+         NSLog(@"动态视图第一行cell中 tag为%ld 被点击", sender.tag);
+    }
+}
 
 
-
-
+#pragma mark - 监听事件
+/**
+ 监听导航栏点击事件
+ */
+- (void)rightButtonItemDidClick
+{
+    NSLog(@"动态视图导航栏right item被点击");
+}
 
 
 

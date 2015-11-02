@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol LeftMenuDelegate <NSObject>
+
+-(void)leftMenuDidSeletedAtRow:(NSInteger)row title:(NSString *)title;
+-(void)leftMenuSettingButtonIsClick;
+
+@end
+
+
+
 @interface LeftMenu : UIView
 
 @property (nonatomic, strong) NSArray *list;
+@property (nonatomic, weak) id<LeftMenuDelegate> delegate;
 @end

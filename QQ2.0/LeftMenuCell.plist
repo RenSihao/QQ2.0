@@ -16,12 +16,6 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>网上营业厅</string>
-		<key>icon</key>
-		<string>sidebar_purse</string>
-	</dict>
-	<dict>
-		<key>title</key>
 		<string>个性装扮</string>
 		<key>icon</key>
 		<string>sidebar_decoration</string>

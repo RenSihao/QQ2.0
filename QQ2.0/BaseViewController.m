@@ -9,11 +9,13 @@
 #import "BaseViewController.h"
 #import "LeftMenu.h"
 #import "SearchViewController.h"
+#import "SettingVC.h"
 
 #define LeftMenu_Width [UIScreen mainScreen].bounds.size.width * 0.75
 #define LeftMenu_Height [UIScreen mainScreen].bounds.size.height - 64
+#define TIMER 0.25
 
-@interface BaseViewController ()
+@interface BaseViewController () <LeftMenuDelegate>
 
 @property (nonatomic, strong) LeftMenu *leftMenu;
 @property (nonatomic, strong) UISearchController *searchVC;
@@ -34,9 +36,7 @@
     //添加导航栏左边视图
     [self addLeftButtonItem];
     
-    
-    
-    
+      
     /**
      以下都是对LeftMenu的加载
      */
@@ -87,7 +87,7 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 40, 40);
     [button setImage:[UIImage imageNamed:@"qqstar2"] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(leftButtonItemDidClick) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(leftItemClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.leftBarButtonItem = leftItem;
 }
@@ -128,22 +128,67 @@
     //拿到左边菜单栏的cell所有数据
     NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"LeftMenuCell" ofType:@"plist"]];
     _leftMenu = [[LeftMenu alloc] initWithFrame:CGRectMake(0, HEADER_HEIGHT, LeftMenu_Width, LeftMenu_Height)];
+    _leftMenu.delegate = self;
     _leftMenu.list = array;
     _leftMenu.hidden = YES;
     [[UIApplication sharedApplication].keyWindow insertSubview:_leftMenu atIndex:1];
     
 }
 
-
-
-#pragma mark - 监听导航栏点击事件
-- (void)leftButtonItemDidClick
+-(void)coverClick:(UIButton *)cover
 {
-    NSLog(@"left did click");
-      
+    [UIView animateWithDuration:TIMER *1.5 animations:^{
+        CGAffineTransform scaleform = CGAffineTransformMakeScale(0.9, 0.9);
+        CGAffineTransform anim = CGAffineTransformTranslate(scaleform, -80, 0);
+        self.leftMenu.transform = anim;
+        self.leftMenu.alpha = 0.1;
+        self.tabBarController.view.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        self.leftMenu.hidden = YES;
+        [cover removeFromSuperview];
+    }];
 }
 
-
+#pragma mark - LeftMenuDelegate
+-(void)leftItemClick
+{
+    //self.navigationItem.leftBarButtonItem = nil;
+    CGAffineTransform sacleForm = CGAffineTransformMakeScale(0.9, 0.9);//缩放
+    CGAffineTransform tranSacleForm = CGAffineTransformTranslate(sacleForm, -80, 0); //缩放+移动
+    self.leftMenu.transform = tranSacleForm;
+    self.leftMenu.hidden = NO;
+    self.leftMenu.alpha = 1.0;
+    [UIView animateWithDuration:TIMER animations:^{
+        self.leftMenu.transform = CGAffineTransformIdentity;
+        //算出比例
+        CGFloat navH = SCREEN_HEIGHT - 124;
+        CGFloat scale = navH / SCREEN_HEIGHT;
+        
+        //左边菜单的距离
+        CGFloat leftMagin = SCREEN_WIDTH * (1 - scale) *0.5;
+        CGFloat translteX = (LeftMenu_Width - leftMagin)/scale;
+        
+        //设置移动缩放
+        CGAffineTransform scaleForm = CGAffineTransformMakeScale(scale, scale);
+        CGAffineTransform transScaleForm = CGAffineTransformTranslate(scaleForm, translteX, 0);
+        self.tabBarController.view.transform = transScaleForm;
+        
+        //添加一个遮盖层
+        UIButton *cover = [[UIButton alloc] initWithFrame:self.navigationController.view.bounds];
+        [cover addTarget:self action:@selector(coverClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.navigationController.view addSubview:cover];
+        
+    }];
+}
+-(void)leftMenuSettingButtonIsClick
+{
+    [self coverClick:nil];
+    
+    SettingVC *setVC = [[SettingVC alloc] init];
+    [self.navigationController pushViewController:setVC animated:YES];
+    
+    
+}
 //#pragma mark - UITableViewDataSource
 //- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 //{

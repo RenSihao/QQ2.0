@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class LeftMenuFootView;
+@protocol LeftMenuFootViewDelegate <NSObject>
+
+-(void)LeftMenuFootViewSettingButtonIsClick;
+
+@end
+
 @interface LeftMenuFootView : UIView
 
+@property (nonatomic, weak) id<LeftMenuFootViewDelegate> delegate;
 @end

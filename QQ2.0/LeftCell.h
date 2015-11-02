@@ -10,4 +10,5 @@
 
 @interface LeftCell : UITableViewCell
 
+@property (nonatomic ,assign)BOOL lineIsHidden;
 @end

@@ -94,7 +94,13 @@
  */
 - (void)buttonItemDidClick:(UIButton *)sender
 {
-    NSLog(@"动态视图第一行cell中 tag为%ld 被点击", sender.tag);
+    if(sender.tag <= 2)
+    {
+        if([self.delegate respondsToSelector:@selector(oneRowCellDidClick:button:)])
+        {
+            [self.delegate oneRowCellDidClick:self button:sender];
+        }
+    }
     
 }
 

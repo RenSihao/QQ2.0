@@ -12,9 +12,12 @@
 #import "MessageTableViewCell.h"
 #import "MessageFrameInfo.h"
 #import "MessageInfo.h"
+#import "MessageCoverView.h"
 
 @interface MessageVC ()
 
+@property (nonatomic, assign) BOOL isClick;
+@property (nonatomic, strong) MessageCoverView *coverView;
 @property (nonatomic, strong) NSArray *messageFrameList;
 @end
 
@@ -46,8 +49,8 @@
     //给搜索框内设置palceholder
     self.searchPlaceHolder = @"搜索";
     
- 
-    
+    //
+    [self.view addSubview:self.coverView];
 }
 /**
  监听导航栏点击
@@ -55,7 +58,17 @@
 - (void)rightItemDidClick
 {
     NSLog(@"消息视图导航栏right item 被点击");
-    
+    _isClick = !_isClick;
+    if(_isClick)
+    {
+        [self.coverView show];
+        
+    }
+    else
+    {
+        [self.coverView hidden];
+        
+    }
 }
 /**
  消息列表的所有cell数据懒加载
@@ -76,6 +89,19 @@
     }
     return _messageFrameList;
 }
+//懒加载蒙板和跳出视图（一个自定义UIView）
+- (MessageCoverView *)coverView
+{
+    if(!_coverView)
+    {
+        _coverView = [[MessageCoverView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT+64)];
+        //添加手势
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightItemDidClick)];
+        [_coverView addGestureRecognizer:tap];
+    }
+    return _coverView;
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
